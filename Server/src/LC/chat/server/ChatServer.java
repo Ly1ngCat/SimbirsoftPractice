@@ -53,7 +53,7 @@ public class ChatServer implements TCPConnectionListener {
         System.out.println("TCPConnection exception: " + e);
     }
 
-    private void sendToAllConnections(String value){
+    private synchronized void sendToAllConnections(String value){
         System.out.println(value);
         int connectionsSize = connections.size();
         for ( int i = 0; i < connectionsSize ; i++ ) connections.get(i).sentString(value);

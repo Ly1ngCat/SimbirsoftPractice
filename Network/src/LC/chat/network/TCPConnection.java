@@ -31,9 +31,9 @@ public class TCPConnection {
                     }
 
                 }catch (IOException e){
-
+                    eventListener.onException(TCPConnection.this, e);
                 }finally {
-
+                    eventListener.onDisconnect(TCPConnection.this);
                 }
             }
         });
